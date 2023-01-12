@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <main class="container">
-        <div class="title">
-            <h1>Tic tac toe</h1>
-        </div>
-       <div class="game-wrapper" id="wrapper">
+    <main>
+        <section class="container">
+            <div class="game-info">
+                <h1 class="info-title"> Welcome to Tic Tac Toe Game.</h1>
+                <p class="start-info">Start game by clicking on the boxes below.</p>
+                <p class="turn-info">Turn for <span class="turn">X</span> </p>
+            </div>
+         <div class="game-wrapper" id="wrapper">
+             <div class="game-line" id="game-line"></div>
+           <div class="cell bt-0 bs-0" data-cell></div>
+           <div class="cell bt-0" data-cell></div>
+           <div class="cell bt-0 be-0" data-cell></div>
+           <div class="cell bs-0" data-cell></div>
            <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
-           <div class="cell" data-cell></div>
+           <div class="cell be-0" data-cell></div>
+           <div class="cell bs-0 bb-0" data-cell></div>
+           <div class="cell bb-0" data-cell></div>
+           <div class="cell be-0 bb-0" data-cell></div>
        </div>
-        <div class="winning-msg" id="winningMsg">
-            <div class="" data-winning-msg-txt>X Wins</div>
+        <div class="winning-msg-wrapper" id="winningMsgWrapper">
+            <div data-winning-msg></div>
             <button class="restart-btn" id="restartBtn">Restart</button>
         </div>
+        </section>
     </main>
 
     <script src="script.js"></script>

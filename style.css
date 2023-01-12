@@ -1,6 +1,7 @@
 *, *::after, *::before{
     margin: 0;
     box-sizing:border-box;
+    font-family: 'Noto Sans', sans-serif;
 } 
 :root{
     --cell-size: 100px;
@@ -10,22 +11,51 @@ body{
     margin: 0;
 }
 
+/* custom css */
+.game-info{
+    margin: auto 0;
+    padding: 16px;
+    text-align: center;
+}
+.info-title{
+    margin-bottom: 16px;
+    font-size: 2rem;
+}
+.turn-info{
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+.start-info{
+    margin: 16px 0;
+}
 .container{
     width: 100vw;
     height: 100vh;
     display: grid;
-    justify-content: center;
-    align-content: center;
-    
 }
 .game-wrapper{
-    padding: 10px;
     display: grid;
     grid-template-columns: repeat(3,auto);
+    position: relative;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 6px;
 }
-.title{
-    text-align: center;
-    padding: 20px;
+.game-line{
+    display:none;
+    background-color: black;
+    height: 5px;
+    position: absolute;
+    z-index: 1;
+}
+.game-line.show{
+    display:block;
+    transition: all 0.5s ease-in-out;
 }
 .cell{
     width: 100px;
@@ -36,18 +66,8 @@ body{
     justify-content: center;
     cursor: pointer;
 }
-
-.cell:first-child, .cell:nth-child(2), .cell:nth-child(3){
-    border-top: 0;
-}
-.cell:last-child, .cell:nth-child(7), .cell:nth-child(8){
-    border-bottom: 0;
-}
-.cell:nth-child(3n+1){
-    border-left: 0;
-}
-.cell:nth-child(3n+3){
-    border-right: 0;
+.cell:hover{
+    background-color: #f4f4f4;
 }
 
 .cell.x, .cell.circle{
@@ -88,7 +108,7 @@ body{
     background-color: white;
 }
 
-.winning-msg{
+.winning-msg-wrapper{
     display: none;
     position: fixed;
     top: 0;
@@ -101,15 +121,17 @@ body{
     color: white;
     font-size: 3rem;
     flex-direction: column;
+    gap: 10px;
+    z-index: 2;
 }
-.winning-msg.show{
+.winning-msg-wrapper.show{
     display: flex;
 }
 .restart-btn{
     font-size: 2rem;
     background-color: white;
     border: 1px solid black;
-    padding: .25em .5em;
+    padding: .25em .9em;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -117,4 +139,18 @@ body{
     background-color: black;
     color: white;
     border-color: white;
+}
+
+/* utility classes */
+.bt-0{
+    border-top: 0;
+}
+.bb-0{
+    border-bottom: 0;
+}
+.bs-0{
+    border-left: 0;
+}
+.be-0{
+    border-right: 0;
 }
